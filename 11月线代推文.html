@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh‑CN">
+<head>
+<meta charset="UTF‑8">
+<meta name="viewport" content="width=device‑width, initial‑scale=1.0">
+<title>线性代数前两章期末必考知识点</title>
+<script id="MathJax‑script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex‑mml‑chtml.js"></script>
+<style>
+*{box‑sizing:border‑box;margin:0;padding:0;}
+body{max‑width:900px;margin:20px auto;padding:0 16px;font‑family:"Microsoft Yahei",sans‑serif;line‑height:1.7;font‑size:16px;color:#222;}
+h1{font‑size:24px;margin:24px 0 12px;color:#1f2937;}
+h2{font‑size:20px;margin:20px 0 10px;color:#1f2937;border‑left:4px solid #2563eb;padding‑left:10px;}
+h3{font‑size:18px;margin:18px 0 8px;color:#2d3748;}
+pre{background:#f3f4f6;padding:12px;border‑radius:6px;overflow‑x:auto;margin:10px 0;}
+blockquote{background:#eff6ff;padding:10px 14px;border‑radius:6px;margin:12px 0;}
+ul,ol{margin:10px 0 10px 2em;}
+hr{margin:24px 0;border:none;border‑top:1px solid #ddd;}
+</style>
+</head>
+<body>
+<h1>期末必考知识点 重磅来袭！</h1>
+<p>线性代数前两章——<strong>第一章「行列式」</strong>与<strong>第二章「矩阵及其运算」</strong>——是整门课的地基：后面解方程组、判秩、讨论相似对角化，都建立在这两章的公式与套路上。</p>
+<p>本文按 <strong>11 个考点</strong>组织，每个考点固定三块：<strong>必备知识点 → 例题 → 答案解析与方法总结</strong></p>
+<h2>考点清单</h2>
+<p>★ 为期末出现频率。正文按这 11 个考点逐一展开，每个考点固定「必备知识点 → 例题 → 答案解析与方法总结」三块。</p>
+<h3>第一章　行列式</h3>
+<ul>
+<li><strong>一、 定义判号、性质与化三角</strong>　★★★<br>‑ 二、三阶公式 · 逆序数判号 · 六条性质 · 化三角形</li>
+<li><strong>二、 按行列展开与代数余子式</strong>　★★★<br>‑ 余子式与代数余子式 · 展开定理 · 异行组合为零</li>
+<li><strong>三、 特殊结构行列式（六类）</strong>　★★★<br>‑ 行和相等 · 爪型 · 三对角 · 范德蒙德 · 分块 · 加边</li>
+<li><strong>四、 抽象行列式公式组</strong>　★★★<br>‑ \(|kA|\)、\(|A^{-1}|\)、\(|A^{*}|\)、\(|(kA)^{*}|\) · 桥梁 \(A^{*}=|A|A^{-1}\)</li>
+</ul>
+<h3>第二章　矩阵及其运算</h3>
+<ul>
+<li><strong>五、 矩阵运算规则与三大陷阱</strong>　★★★<br>‑ \(AB\neq BA\) · \(AB=O\) · 消去律不成立</li>
+<li><strong>六、 逆矩阵</strong>　★★★<br>‑ 可逆 \(\iff|A|\neq0\) · 伴随法 · 初等行变换 · 定义法</li>
+<li><strong>七、 伴随矩阵</strong>　★★<br>‑ \(AA^{*}=|A|E\) · \(|A^{*}|=|A|^{\,n‑1}\) · 伴随的秩三档</li>
+<li><strong>八、 矩阵方程</strong>　★★<br>‑ \(AX=B\) · \(XA=B\) · \(AXB=C\) · 左右乘方向</li>
+<li><strong>九、 方阵的幂</strong>　★★<br>‑ 秩 1 矩阵 · 对角阵 · 算 \(A^{2}\) 找规律</li>
+<li><strong>十、 克拉默法则</strong>　★★<br>‑ \(x_{j}=|A_{j}|/|A|\) · 齐次非零解 \(\iff|A|=0\)</li>
+<li><strong>十一、 证明题模板</strong>　★★<br>‑ 幂等与对合 · 分解 + 可逆性 + 反证</li>
+</ul>
+<hr>
+<h2>一、 定义判号、性质与化三角　★★★</h2>
+<h3>01 必备知识点</h3>
+<ul>
+<li>二阶：主对角线之积减副对角线之积，即 \(ad‑bc\)；三阶用对角线法则（<strong>仅限二、三阶</strong>）</li>
+<li>\(n\) 阶行列式是 \(n!\) 项的代数和，每项取自<strong>不同行、不同列</strong>的 \(n\) 个元素之积</li>
+<li>项的符号 \((‑1)^{\tau(j_1j_2\cdots j_n)}\)，\(\tau\) 为列标排列的逆序数；行标非自然序时用两排列逆序数之和</li>
+<li>六条性质：\(|A^T|=|A|\)；换行（列）变号；某行乘 \(k\) 则行列式乘 \(k\)；两行相同或成比例为零；某行可拆成两组和；倍加不变</li>
+<li>化三角形：上（下）三角行列式 \(=\) 主对角线元素之积</li>
+<li>数乘与乘积：\(|kA|=k^{n}|A|\)（<strong>每行提一次，共 \(n\) 次</strong>）；\(|AB|=|A||B|\)</li>
+</ul>
+<h3>02 例题　展开项判号　（ 容易）</h3>
+<p>四阶行列式展开式中，项 \(a_{13}a_{21}a_{32}a_{44}\) 的符号为（  ）</p>
+<p>A. 正　　B. 负　　C. 零　　D. 与元素取值有关</p>
+<h3>03 答案解析与方法总结</h3>
+<p><strong>答案：</strong> A</p>
+<ol>
+<li>行标已按自然序 \(1,2,3,4\) 排列，只需看列标排列 \(3124\) 的逆序数：\(\tau(3124)=2\)（\(3\) 在 \(1,2\) 之前，共 2 个逆序），为偶数，故取正号。</li>
+<li>若行标也不是自然序，则须用「行标逆序数 \(+\) 列标逆序数」之和判号。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 判号只看下标排列的逆序数，与元素取值无关；先排行标再数列标，最不易错。</blockquote>
+
+<hr>
+<h2>② 按行/列展开与代数余子式　★★★</h2>
+<h3>01 必备知识点</h3>
+<ul>
+<li>余子式 \(M_{ij}\)：划去第 \(i\) 行、第 \(j\) 列后剩下的 \(n‑1\) 阶行列式</li>
+<li>代数余子式 \(A_{ij}=(‑1)^{i+j}M_{ij}\)（<strong>带符号</strong>，余子式不带）</li>
+<li>展开定理：按第 \(i\) 行展开 \(|A|=\sum_{j=1}^{n}a_{ij}A_{ij}\)；按第 \(j\) 列展开同理</li>
+<li>异行（列）组合为零：\(\sum_{j=1}^{n}a_{ij}A_{kj}=0\ (i\neq k)\)，因相当于把第 \(k\) 行换成第 \(i\) 行后两行相同</li>
+<li>降阶原则：优先选<strong>零最多</strong>的行（列）展开；先把某行造出多个零再展开</li>
+<li>两个必考结论：同行相乘得 \(|A|\)，异行相乘得 \(0\)</li>
+</ul>
+<h3>02 例题　异行相乘　（中）</h3>
+<p>设四阶矩阵 \(A\) 满足 \(|A|=3\)，\(A_{ij}\) 为元素 \(a_{ij}\) 的代数余子式，则<br>
+\(a_{21}A_{31}+a_{22}A_{32}+a_{23}A_{33}+a_{24}A_{34}=\)（  ）</p>
+<p>A. \(3\)　　B. \(-3\)　　C. \(0\)　　D. \(1\)</p>
+<h3>03 答案解析与方法总结</h3>
+<p><strong>答案：</strong> C</p>
+<ol>
+<li>该式是「第 2 行元素乘以第 3 行的代数余子式」，相当于把第 3 行换成第 2 行后按第 3 行展开，所得行列式有两行相同，值为 \(0\)。</li>
+<li>对照：\(a_{11}A_{11}+a_{12}A_{12}+a_{13}A_{13}+a_{14}A_{14}\) 是同行组合，直接等于 \(|A|=3\)。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 先看「元素所在行」与「代数余子式所在行」是否相同：同行得 \(|A|\)，异行得 \(0\)，不必硬算。</blockquote>
+
+<hr>
+<h2>③ 特殊结构行列式（六类）　★★★</h2>
+<h3>01 必备知识点</h3>
+<ul>
+<li><strong>行（列）和相等</strong>：各列加到第一列，提出公因子，再倍加造零化三角</li>
+<li><strong>爪型</strong>（第一行、第一列、主对角线非零）：用 \(a_{ii}\) 消去 \(a_{1i}\)；通项 \(D=\left(a_{11}‑\sum_{i=2}^{n}\frac{a_{i1}a_{1i}}{a_{ii}}\right)\prod_{i=2}^{n}a_{ii}\)</li>
+<li><strong>三对角</strong>：按第一行展开得递推 \(D_{n}=xD_{n‑1}‑D_{n‑2}\)；\(x=2\cos\theta\) 时 \(D_{n}=\frac{\sin(n+1)\theta}{\sin\theta}\)</li>
+<li><strong>范德蒙德</strong>：\(V_{n}=\prod_{1\le j<i\le n}(x_{i}‑x_{j})\)，识别特征是每列同底、行内幂次递增</li>
+<li><strong>分块</strong>：\(|\mathrm{diag}(A,B)|=|A||B|\)；\(\begin{vmatrix}O&amp;A\\B&amp;O\end{vmatrix}=(‑1)^{mn}|A||B|\)；分块三角 \(=|A||B|\)</li>
+<li><strong>加边（秩 1 型）</strong>：\(|A+\alpha\beta^{T}|=|A|(1+\beta^{T}A^{‑1}\alpha)\)，特例 \(|E+\alpha\beta^{T}|=1+\beta^{T}\alpha\)</li>
+</ul>
+<h3>例题 1　行和相等型（n 阶通项）　（中）</h3>
+<p>计算 \(n\) 阶行列式 \(D_{n}=\begin{vmatrix}a&amp;b&amp;\cdots&amp;b\\b&amp;a&amp;\cdots&amp;b\\\vdots&amp;\vdots&amp;\ddots&amp;\vdots\\b&amp;b&amp;\cdots&amp;a\end{vmatrix}\)（\(a\neq b\)）。</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> \(D_{n}=\bigl[a+(n‑1)b\bigr](a‑b)^{\,n‑1}\)</p>
+<ol>
+<li><strong>行和相等</strong>：各行加到第 1 行，第一行全为 \(a+(n‑1)b\)，提出该因子，第一行变为全 \(1\)。</li>
+<li><strong>造零</strong>：把第 1 行的 \(-b\) 倍加到第 \(2,3,\dots,n\) 行，第 \(i\) 行对角元变为 \(a‑b\)、其余为 \(0\)，得下三角。</li>
+<li>验算：\(n=4,\ a=3,\ b=1\) 时 \((3+3)\times2^{3}=48\)；\(b=0\) 时退化为 \(a^{n}\)。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 识别特征是「每行元素相同、只是位置轮换」。两步：求和提因子 → 造零降阶；</blockquote>
+
+<h3>例题 2　爪型行列式　（难）</h3>
+<p>计算 \(D=\begin{vmatrix}3&amp;1&amp;1&amp;1\\1&amp;2&amp;0&amp;0\\1&amp;0&amp;3&amp;0\\1&amp;0&amp;0&amp;4\end{vmatrix}\)。</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> \(D=46\)</p>
+<ol>
+<li>用每个对角元消掉第一行对应元素：\(r_{1}‑\frac12r_{2}‑\frac13r_{3}‑\frac14r_{4}\)，第一行第 \(2,3,4\) 列归零。</li>
+<li>第 1 列变为 \(3‑\frac12‑\frac13‑\frac14=\frac{23}{12}\)，矩阵化为下三角。</li>
+<li>故 \(D=\frac{23}{12}\times2\times3\times4=46\)。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 套通项公式即可；若某对角元为 \(0\)，先交换行（记得变号）再消元。</blockquote>
+
+<h3>例题 3　三对角递推　（难）</h3>
+<p>\(D_{4}=\begin{vmatrix}2&amp;‑1&amp;0&amp;0\\‑1&amp;2&amp;‑1&amp;0\\0&amp;‑1&amp;2&amp;‑1\\0&amp;0&amp;‑1&amp;2\end{vmatrix}=\)（  ）</p>
+<p>A. \(3\)　　B. \(4\)　　C. \(5\)　　D. \(6\)</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> C</p>
+<ol>
+<li>按第一行展开：\(D_{4}=2D_{3}‑(‑1)(‑1)D_{2}=2D_{3}‑D_{2}\)。</li>
+<li>逐级算低阶：\(D_{1}=2,\ D_{2}=3,\ D_{3}=4\)，故 \(D_{4}=2\times4‑3=5\)。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 三对角一律递推，从 \(D_{1},D_{2}\) 起步，<strong>不要硬展开 24 项</strong>。同型：选 41、填 13、32、解答 14、23。</blockquote>
+
+<h3>例题 4　范德蒙德行列式　（难）</h3>
+<p>\(\begin{vmatrix}1&amp;1&amp;1&amp;1\\1&amp;2&amp;3&amp;4\\1&amp;4&amp;9&amp;16\\1&amp;8&amp;27&amp;64\end{vmatrix}=\)（  ）</p>
+<p>A. \(6\)　　B. \(12\)　　C. \(24\)　　D. \(48\)</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> B</p>
+<ol>
+<li>每一列是同一个数的 \(0,1,2,3\) 次幂，直接套 \(V_{4}=\prod_{1\le j<i\le4}(x_{i}‑x_{j})\)，\(x_{i}=1,2,3,4\)。</li>
+<li>\((2‑1)(3‑1)(4‑1)(3‑2)(4‑2)(4‑3)=12\)。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 范德蒙德的关键在<strong>识别</strong>：行内幂次递增、每列同底，见到就套公式。</blockquote>
+
+<hr>
+<h2>④ 抽象行列式公式组　★★★</h2>
+<h3>01 必备知识点</h3>
+<ul>
+<li>\(|A^{T}|=|A|\)，\(|A^{‑1}|=\dfrac{1}{|A|}\)，\(|A^{m}|=|A|^{m}\)</li>
+<li>\(|kA|=k^{n}|A|\)（最易错，漏掉 \(n\) 次方）</li>
+<li>\(|A^{*}|=|A|^{\,n‑1}\)，\(|(A^{*})^{*}|=|A|^{\,(n‑1)^{2}}\)</li>
+<li>\(|(kA)^{*}|=k^{\,n(n‑1)}|A|^{\,n‑1}\)，也可先算 \(|kA|\) 再用 \(|M^{*}|=|M|^{n‑1}\)</li>
+<li>桥梁公式：\(A^{*}=|A|A^{‑1}\)，所有含 \(A^{*}\) 的项都先化成 \(A^{‑1}\)</li>
+<li>解题三步：统一成同一矩阵的数乘 → 提出 \(k^{n}\) → 代入 \(|A|\)；</li>
+</ul>
+<h3>例题 1　两层嵌套　（难）</h3>
+<p>设 \(A\) 为三阶矩阵，\(|A|=2\)，则 \(|(2A)^{*}|=\)（  ）</p>
+<p>A. \(16\)　　B. \(32\)　　C. \(64\)　　D. \(256\)</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> D</p>
+<ol>
+<li>先算 \(|2A|=2^{3}\times2=16\)，再用 \(|M^{*}|=|M|^{n‑1}\)，得 \(|(2A)^{*}|=16^{2}=256\)。</li>
+<li>另解：\((kA)^{*}=k^{n‑1}A^{*}\)，\((2A)^{*}=4A^{*}\)，\(|4A^{*}|=4^{3}\times4=256\)，结果一致。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 两步走——先算内层 \(|kA|\)，再套 \(|M^{*}|\)；切忌把 \(|2A|\) 算成 \(4\) 或 \(8\)。</blockquote>
+
+<h3>例题 2　综合化简（考研）</h3>
+<p>设 \(A\) 为三阶矩阵，\(|A|=\dfrac12\)，则 \(|(2A)^{‑1}‑3A^{*}|=\)（  ）</p>
+<p>A. \(-2\)　　B. \(2\)　　C. \(-1\)　　D. \(-\dfrac12\)</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> A</p>
+<ol>
+<li>统一成 \(A^{‑1}\)：\((2A)^{‑1}=\frac12A^{‑1}\)，\(A^{*}=|A|A^{‑1}=\frac12A^{‑1}\)，故 \(3A^{*}=\frac32A^{‑1}\)。</li>
+<li>于是 \((2A)^{‑1}‑3A^{*}=\left(\frac12‑\frac32\right)A^{‑1}=‑A^{‑1}\)，取行列式得 \((‑1)^{3}\cdot\frac{1}{|A|}=‑2\)。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 万能三步：化同一矩阵的数乘 → 提 \(k^{n}\) → 用 \(|A^{‑1}|=1/|A|\) 收尾。</blockquote>
+
+<hr>
+<h2>⑤ 矩阵运算规则与三大陷阱　★★★</h2>
+<h3>01 必备知识点</h3>
+<ul>
+<li>可乘条件：\((m\times s)(s\times n)\) 得 \(m\times n\)；\(AB\) 与 \(BA\) 同时有意义时阶数可以不同</li>
+<li>\(AB\neq BA\)（<strong>乘法不可交换</strong>）；\((AB)^{k}\neq A^{k}B^{k}\)（一般）</li>
+<li>\(AB=O\) <strong>推不出</strong> \(A=O\) 或 \(B=O\)，但取行列式得 \(|A||B|=0\)</li>
+<li>消去律不成立：\(AB=AC\) 且 \(A\) 不可逆时不能约去 \(A\)</li>
+<li>转置与逆的反序：\((AB)^{T}=B^{T}A^{T}\)，\((AB)^{‑1}=B^{‑1}A^{‑1}\)</li>
+<li>幂的规则：\(A^{k}A^{l}=A^{k+l}\)，\((A^{k})^{l}=A^{kl}\)，但 \((A+B)^{2}\neq A^{2}+2AB+B^{2}\)（除非可交换）</li>
+</ul>
+<h3>例题 1　（考研）</h3>
+<p>设 \(A,B\) 为 \(n\) 阶矩阵，且 \(AB=O\)，则（  ）</p>
+<p>A. \(A=O\) 或 \(B=O\)　　B. \(|A|=0\) 或 \(|B|=0\)<br>C. \(A,B\) 都不可逆　　D. \(|A|+|B|=0\)</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> B</p>
+<ol>
+<li>两边取行列式：由行列式性质可知：\(|A||B|=|AB|=0\)，故至少有一个为零。</li>
+<li>A 错：两个非零矩阵之积可以为零，如 \(\begin{pmatrix}1&amp;0\\0&amp;0\end{pmatrix}\begin{pmatrix}0&amp;0\\0&amp;1\end{pmatrix}=O\)；C 错：其中可能有一个可逆；D 错：条件推不出两个行列式都为零。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> \(AB=O\) 的正确打开方式：先取行列式得 \(|A||B|=0\)；若题目给秩，还可用 \(r(A)+r(B)\le n\)。</blockquote>
+
+<h3>例题 2　幂等矩阵的行列式　（中）</h3>
+<p>设 \(A\) 为 \(n\) 阶矩阵，\(A^{2}=A\) 且 \(A\neq E\)，则 \(|A|=\)（  ）</p>
+<p>A. \(1\)　　B. \(0\)　　C. \(-1\)　　D. 不能确定</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> B</p>
+<ol>
+<li>取行列式：\(|A|^{2}=|A|\)，故 \(|A|=0\) 或 \(1\)。</li>
+<li>若 \(|A|=1\)，则 \(A\) 可逆，在 \(A^{2}=A\) 两边左乘 \(A^{‑1}\) 得 \(A=E\)，与已知矛盾。故 \(|A|=0\)。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 抽象矩阵中，「由行列式非零推出可逆，再导出矛盾」是判定 \(|A|=0\) 的标准套路。同款：\(A^{2}=E\Rightarrow|A|=\pm1\)；\(A^{3}=A\Rightarrow|A|\in\{0,\pm1\}\)。</blockquote>
+
+<hr>
+<h2>⑥ 逆矩阵　★★★</h2>
+<h3>01 必备知识点</h3>
+<ul>
+<li>可逆的三组等价说法：\(|A|\neq0\)；\(r(A)=n\)；\(Ax=0\) 只有零解</li>
+<li>伴随矩阵与逆矩阵的关系：\(A^{‑1}=\dfrac{1}{|A|}A^{*}\)</li>
+<li>初等行变换法：\((A\mid E)\xrightarrow{\text{行变换}}(E\mid A^{‑1})\)</li>
+<li>定义法：抽象矩阵凑成 \(MN=E\)，则 \(M^{‑1}=N\)</li>
+<li>运算律：\((AB)^{‑1}=B^{‑1}A^{‑1}\)，\((A^{T})^{‑1}=(A^{‑1})^{T}\)，\((A^{‑1})^{‑1}=A\)</li>
+<li>幂零求逆：\(A^{k}=O\Rightarrow(E‑A)^{‑1}=E+A+\cdots+A^{k‑1}\)；注意 \((A+B)^{‑1}\) 一般不存在</li>
+</ul>
+<h3>例题 1　初等行变换求逆　（中）</h3>
+<p>用初等行变换求 \(A=\begin{pmatrix}1&amp;2&amp;3\\0&amp;1&amp;4\\5&amp;6&amp;0\end{pmatrix}\) 的逆矩阵。</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> \(A^{‑1}=\begin{pmatrix}‑24&amp;18&amp;5\\20&amp;‑15&amp;‑4\\‑5&amp;4&amp;1\end{pmatrix}\)</p>
+<ol>
+<li>构造 \((A\mid E)\)，<strong>只做行变换</strong>，目标把左边化为 \(E\)：</li>
+<li>\((A\mid E)=\left(\begin{array}{ccc|ccc}1&amp;2&amp;3&amp;1&amp;0&amp;0\\0&amp;1&amp;4&amp;0&amp;1&amp;0\\5&amp;6&amp;0&amp;0&amp;0&amp;1\end{array}\right)\)</li>
+<li>\(r_{3}‑5r_{1}\)：第三行变为 \((0,‑4,‑15\mid‑5,0,1)\)；</li>
+<li>\(r_{1}‑2r_{2},\ r_{3}+4r_{2}\)：得 \(\left(\begin{array}{ccc|ccc}1&amp;0&amp;‑5&amp;1&amp;‑2&amp;0\\0&amp;1&amp;4&amp;0&amp;1&amp;0\\0&amp;0&amp;1&amp;‑5&amp;4&amp;1\end{array}\right)\)；</li>
+<li>\(r_{1}+5r_{3},\ r_{2}‑4r_{3}\)：右边即 \(A^{‑1}\)。最后验算 \(AA^{‑1}=E\)。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 节奏为「主元化 1 → 消同列其他元素」，自上而下、自下而上各扫一遍；中途不换行，否则右侧同步变乱。</blockquote>
+
+<h3>例题 2　定义法求逆（幂零矩阵）　（考研）</h3>
+<p>设 \(A\) 为 \(n\) 阶矩阵，\(A^{3}=O\)，则 \((E‑A)^{‑1}=\)（  ）</p>
+<p>A. \(E+A\)　　B. \(E+A+A^{2}\)　　C. \(E‑A+A^{2}\)　　D. 不存在</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> B</p>
+<ol>
+<li>用立方差分解：\((E‑A)(E+A+A^{2})=E‑A^{3}=E\)，故 \((E‑A)^{‑1}=E+A+A^{2}\)。</li>
+<li>一般结论：\(A^{k}=O\) 时 \((E‑A)^{‑1}=E+A+\cdots+A^{k‑1}\)，且 \(E‑A\) 一定可逆，即使 \(A\) 不可逆。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 抽象矩阵求逆的通用手法：把已知等式<strong>因式分解成 \(MN=E\)</strong>。同型：填 9、28、31，解答 10、27。</blockquote>
+
+<hr>
+<h2>⑦ 伴随矩阵　★★</h2>
+<h3>01 必备知识点</h3>
+<ul>
+<li>核心恒等式：\(AA^{*}=A^{*}A=|A|E\)（对任意方阵成立，包括不可逆）</li>
+<li>可逆时：\(A^{*}=|A|A^{‑1}\)，\(A^{‑1}=\dfrac{1}{|A|}A^{*}\)</li>
+<li>\(|A^{*}|=|A|^{\,n‑1}\)；\((A^{*})^{*}=|A|^{\,n‑2}A\ (n\ge3)\)；\((A^{*})^{‑1}=(A^{‑1})^{*}=\dfrac{A}{|A|}\)</li>
+<li>秩的三档：\(r(A)=n\Leftrightarrow r(A^{*})=n\)；\(r(A)=n‑1\Leftrightarrow r(A^{*})=1\)；\(r(A)<n‑1\Leftrightarrow r(A^{*})=0\)</li>
+<li>乘积反序：\((AB)^{*}=B^{*}A^{*}\)（证明用扰动法处理不可逆情形）</li>
+<li>证明 \(|A^{*}|=|A|^{n‑1}\) 必须分 \(|A|\neq0\) 与 \(|A|=0\) 两类，后者用反证法</li>
+</ul>
+<h3>例题　证明  \(|A^{*}|=|A|^{\,n‑1}\) 　（题源：解答 11 · 考研）</h3>
+<p>设 \(A\) 为 \(n\ (n\ge2)\) 阶矩阵，\(A^{*}\) 为其伴随矩阵。证明：\(|A^{*}|=|A|^{\,n‑1}\)。</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> 分 \(|A|\neq0\) 与 \(|A|=0\) 两类讨论（见解析）</p>
+<ol>
+<li><strong>(1) \(|A|\neq0\)</strong>：\(A\) 可逆，由 \(AA^{*}=|A|E\) 得 \(A^{*}=|A|A^{‑1}\)，两边取行列式：\(|A^{*}|=|A|^{n}\cdot|A^{‑1}|=|A|^{n}\cdot\dfrac{1}{|A|}=|A|^{n‑1}\)。</li>
+<li><strong>(2) \(|A|=0\)</strong>：需证 \(|A^{*}|=0\)。若 \(A=O\)，则 \(A^{*}=O\)，成立；若 \(A\neq O\)，反证：设 \(|A^{*}|\neq0\)，则 \(A^{*}\) 可逆，在 \(AA^{*}=|A|E=O\) 两边右乘 \((A^{*})^{‑1}\) 得 \(A=O\)，矛盾。故 \(|A^{*}|=0=|A|^{n‑1}\)。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 第 (2) 类不能约去 \(|A|\)（此时 \(|A|=0\)，除法不成立），必须分类讨论 + 反证；只写第 (1) 类会丢一半分。</blockquote>
+
+<hr>
+<h2>⑧ 矩阵方程　★★</h2>
+<h3>01 必备知识点</h3>
+<ul>
+<li>标准形一：\(AX=B\Rightarrow X=A^{‑1}B\)（\(A\) 在左，逆乘在左）</li>
+<li>标准形二：\(XA=B\Rightarrow X=BA^{‑1}\)（\(A\) 在右，逆乘在右）</li>
+<li>标准形三：\(AXB=C\Rightarrow X=A^{‑1}CB^{‑1}\)</li>
+<li>含 \(kX\) 先写成 \(kEX\) 再合并：\(XA‑2X=X(A‑2E)\)</li>
+<li>完全平方类：\(A^{2}+2A‑3E=O\Rightarrow(A+3E)(A‑E)=O\)，用于求逆或讨论可逆性</li>
+<li>解出后必须回代验证 \(AX=B\)，可避免方向错误</li>
+</ul>
+<h3>例题　先移项、再定向　（中）</h3>
+<p>设 \(A=\begin{pmatrix}4&amp;1\\1&amp;3\end{pmatrix}\)，\(B=\begin{pmatrix}2&amp;1\\1&amp;2\end{pmatrix}\)，解矩阵方程 \(XA=B+2X\)。</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> \(X=\begin{pmatrix}1&amp;0\\‑1&amp;3\end{pmatrix}\)</p>
+<ol>
+<li>移项：\(XA‑2X=B\)。注意 \(2X=2EX\)，故 \(X(A‑2E)=B\)。</li>
+<li>\(A‑2E=\begin{pmatrix}2&amp;1\\1&amp;1\end{pmatrix}\)，\(|A‑2E|=1\neq0\)，其逆为 \(\begin{pmatrix}1&amp;‑1\\‑1&amp;2\end{pmatrix}\)。</li>
+<li>\(X\) 在左，故右乘逆：\(X=B(A‑2E)^{‑1}=\begin{pmatrix}2&amp;1\\1&amp;2\end{pmatrix}\begin{pmatrix}1&amp;‑1\\‑1&amp;2\end{pmatrix}=\begin{pmatrix}1&amp;0\\‑1&amp;3\end{pmatrix}\)。</li>
+<li>验证：\(XA=\begin{pmatrix}4&amp;1\\‑1&amp;8\end{pmatrix}=B+2X\)。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 最大坑是把 \(X\) 提成 \((A‑2E)X\)——乘法不可交换，\(X\) 在左就必须提取在左、逆乘在右；解后回代 30 秒保 8 分。</blockquote>
+
+<hr>
+<h2>⑨ 方阵的幂　★★</h2>
+<h3>01 必备知识点</h3>
+<ul>
+<li><strong>秩 1 矩阵</strong> \(A=\alpha\beta^{T}\)：\(A^{k}=(\beta^{T}\alpha)^{k‑1}A\)，其中 \(\beta^{T}\alpha=\mathrm{tr}(A)\)</li>
+<li><strong>可对角化</strong>：\(A=P\Lambda P^{‑1}\Rightarrow A^{k}=P\Lambda^{k}P^{‑1}\)</li>
+<li><strong>找规律归纳</strong>：算 \(A^{2},A^{3}\) → 写成 \(A\) 的倍数或通项 → 数学归纳法证明</li>
+<li>二项式展开 \((A+B)^{k}=\sum C_k^iA^{i}B^{k‑i}\) 仅在 \(AB=BA\) 时可用（如 \(A\) 与 \(E\) 的组合）</li>
+<li>特例：\(A=E+\alpha\beta^{T}\) 型，用 \((E+N)^{k}=E+kN+\cdots\)（\(N^{2}=O\) 时截断）</li>
+</ul>
+<h3>例题　秩 1 矩阵求幂　（中）</h3>
+<p>设 \(A=\begin{pmatrix}1&amp;1&amp;1\\1&amp;1&amp;1\\1&amp;1&amp;1\end{pmatrix}\)，求 \(A^{n}\)。</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> \(A^{n}=3^{\,n‑1}A\)</p>
+<ol>
+<li>先算低次幂：\(A^{2}\) 的每个元素是「一行之和 \(\times\) 一列之和」\(=3\times1=3\)，即 \(A^{2}=3A\)。</li>
+<li>于是 \(A^{3}=3A^{2}=9A\)，归纳得 \(A^{n}=3^{n‑1}A\)。</li>
+<li>一般地，秩 1 矩阵 \(A=\alpha\beta^{T}\) 有 \(A^{k}=(\beta^{T}\alpha)^{k‑1}A\)，此处 \(\beta^{T}\alpha=3\)。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 见到「每行（列）成比例」就是秩 1，直接套公式，<strong>不要试图对角化</strong>；Fibonacci 矩阵走「算低次幂 → 猜通项 → 归纳」。</blockquote>
+
+<hr>
+<h2>⑩ 克拉默法则　★★</h2>
+<h3>01 必备知识点</h3>
+<ul>
+<li>使用前提：\(n\) 个未知数、\(n\) 个方程，且系数行列式 \(|A|\neq0\)</li>
+<li>解公式：\(x_{j}=\dfrac{|A_{j}|}{|A|}\)，\(|A_{j}|\) 是把第 \(j\) 列换成右端项所得行列式</li>
+<li>齐次方程组有非零解 \(\iff |A|=0\)；只有零解 \(\iff |A|\neq0\)</li>
+<li>参数讨论流程：先算 \(|A|\)（含参数）→ 令 \(|A|=0\) 求临界值 → 分情况代入原方程讨论</li>
+<li>计算技巧：\(|A|\) 与 \(|A_{j}|\) 常可借范德蒙德、行和相等结构快速求出</li>
+<li>第七版教材把它放在第二章 §4，考纲仍属第二章范围</li>
+</ul>
+<h3>例题　带参数的克拉默　（考研）</h3>
+<p>用克拉默法则解 \(\begin{cases}x_{1}+x_{2}+x_{3}=a\\ x_{1}+2x_{2}+3x_{3}=b\\ x_{1}+4x_{2}+9x_{3}=c\end{cases}\)，并求 \(a=6,b=14,c=36\) 时的解。</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> \(x_{1}=\dfrac{6a‑5b+c}{2}\)，\(x_{2}=‑3a+4b‑c\)，\(x_{3}=\dfrac{2a‑3b+c}{2}\)；本例 \((x_1,x_2,x_3)^{T}=(1,2,3)^{T}\)</p>
+<ol>
+<li>系数行列式是范德蒙德型：\(|A|=(2‑1)(3‑1)(3‑2)=2\neq0\)，可用克拉默法则。</li>
+<li>分别把第 1、2、3 列换成右端项：\(|A_{1}|=6a‑5b+c\)，\(|A_{2}|=‑6a+8b‑2c\)，\(|A_{3}|=2a‑3b+c\)，再除以 \(|A|\)。</li>
+<li>代入 \(a=6,b=14,c=36\)：\(x_{1}=1,\ x_{2}=2,\ x_{3}=3\)。验证：三式右端分别为 \(6,14,36\)。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 先验 \(|A|\neq0\)（顺手用范德蒙德），再逐列替换算 \(|A_{j}|\)；参数讨论版见解答 13，\(|A|=0\) 时转为「无穷多解 / 无解」判别。</blockquote>
+
+<hr>
+<h2>⑪ 证明题模板　★★</h2>
+<h3>01 必备知识点</h3>
+<ul>
+<li>通用链条：矩阵等式 → 因式分解成 \(MN=O\) 或 \(MN=E\) → 用可逆性推出 \(N=O\) 或求出逆 → 与已知条件对照</li>
+<li>反对称矩阵（\(A^{T}=‑A\)）奇数阶：\(|A|=|A^{T}|=|‑A|=(‑1)^{n}|A|=‑|A|\Rightarrow|A|=0\)</li>
+<li>幂等/对合：\(A^{2}=A\Rightarrow|A|\in\{0,1\}\)，可逆时 \(A=E\)；\(A^{2}=E\Rightarrow|A|=\pm1\)，\(A\neq\pm E\) 时 \(|A\pm E|=0\)</li>
+<li>\(AB=O\) 且 \(B\) 可逆 \(\Rightarrow A=O\)，这是最常用的「消去」步骤</li>
+<li>证 \(|A|=0\) 的两条路：反证「若可逆则导出 \(A=O\) / \(A=E\) 型矛盾」；或直接构造非零解向量</li>
+</ul>
+<h3>例题　A²=E 的双重行列式　（题源：解答 15 · 竞赛）</h3>
+<p>设 \(A\) 为 \(n\) 阶矩阵，\(A^{2}=E\) 且 \(A\neq E,\ A\neq -E\)。证明：\(|A+E|=0\) 且 \(|A‑E|=0\)。</p>
+<h3>答案解析与方法总结</h3>
+<p><strong>答案：</strong> 见解析（推理链完整版）</p>
+<ol>
+<li>由 \(A^{2}=E\) 得 \((A+E)(A‑E)=O\)。</li>
+<li>若 \(|A+E|\neq0\)，则 \(A+E\) 可逆，两边左乘 \((A+E)^{‑1}\) 得 \(A‑E=O\)，即 \(A=E\)，与已知矛盾。故 \(|A+E|=0\)。</li>
+<li>同理，若 \(|A‑E|\neq0\)，左乘 \((A‑E)^{‑1}\) 得 \(A=‑E\)，矛盾。故 \(|A‑E|=0\)。</li>
+<li>实例：\(A=\begin{pmatrix}1&amp;0\\0&amp;‑1\end{pmatrix}\) 满足 \(A^{2}=E\)，\(A+E\)、\(A‑E\) 各含零行（列），故二者行列式均为零。</li>
+</ol>
+<blockquote><strong>方法总结：</strong> 本质是 \(A^{2}=E\) 只允许特征值取 \(\pm1\)，\(A\neq\pm E\) 则 \(1\) 与 \(-1\) 同时出现。同族：解答 9（反对称）、解答 10 与 27（\(A^{2}=2A\)、\(A^{2}=A\) 求 \((A+E)^{‑1}\)）。</blockquote>
+
+</body>
+</html>
